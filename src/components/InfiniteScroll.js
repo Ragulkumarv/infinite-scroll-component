@@ -67,7 +67,7 @@ const InfiniteScroll = () => {
             <img
               src={TMDB_IMG_Path + item.poster_path}
               alt={`${item.original_title} Poster`}
-              className="w-full h-60 object-fill"
+              className="w-full h-60 object-fill transform transition-transform duration-300 hover:scale-105 hover:cursor-pointer"
               loading="lazy"
             />
             <div className="p-4">
