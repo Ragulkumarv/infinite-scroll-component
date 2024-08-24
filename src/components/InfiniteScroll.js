@@ -8,20 +8,23 @@ const InfiniteScroll = () => {
   const loader = useRef(null);
 
   const fetchPosts = useCallback(async (page) => {
-    const url = await fetch(
-      `https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page} +
-      &region=IN`,
-      API_Options
-    );
+    try {
+      const url = await fetch(
+        `https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page} +
+        &region=IN`,
+        API_Options
+      );
 
-    const resp = await url.json();
+      const resp = await url.json();
 
-    const newPosts = resp?.results;
+      const newPosts = resp?.results;
 
-    setPosts((prev) => [...prev, ...newPosts]);
-
-    if (newPosts?.length < 20) {
-      setHasMore(false);
+      setPosts((prev) => [...prev, ...newPosts]);
+      if (newPosts?.length < 20) {
+        setHasMore(false);
+      }
+    } catch (error) {
+      console.error("api failed", error);
     }
   }, []);
 
