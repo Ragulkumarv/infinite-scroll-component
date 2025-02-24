@@ -3,7 +3,7 @@ import { API_Options, TMDB_IMG_Path } from "../utils/constants";
 
 const options = {
   root: null,
-  rootMargin: "20px",
+  rootMargin: "0px",
   threshold: 1.0,
 };
 
