@@ -56,11 +56,12 @@ const InfiniteScroll = () => {
   return (
     //wrap the loader div with ref outside the main card wrapper
     <div className="mx-auto max-w-5xl p-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"> */}
+      <div className="flex flex-wrap justify-center gap-4">
         {posts.map((item) => (
           <section
             key={item.id}
-            className="bg-white rounded-lg shadow-md overflow-hidden"
+            className="bg-white rounded-lg shadow-md overflow-hidden w-40 sm:w-48 md:w-56 lg:w-64"
           >
             <img
               src={
