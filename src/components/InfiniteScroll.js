@@ -1,13 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import { API_Options, TMDB_IMG_Path } from "../utils/constants";
+import { API_Options, fallbackImg, TMDB_IMG_Path } from "../utils/constants";
 
 const options = {
   root: null,
   rootMargin: "0px",
   threshold: 1.0,
 };
-
-const fallbackImg = `https://placehold.co/300x450/cccccc/ffffff?text=No+Image`;
 
 const InfiniteScroll = () => {
   const [posts, setPosts] = useState([]);
@@ -25,14 +23,14 @@ const InfiniteScroll = () => {
 
       const data = await resp.json();
       setPosts((prev) => [...prev, ...data.results]); //on each call append new data
-      setHasMore(data.results.length === 20);
+      setHasMore(data.results.length === 20); //showMore true or false
     } catch (error) {
       setPosts([]);
     }
   };
 
   useEffect(() => {
-    fetchData();
+    fetchData(); //call api if page number state updates
   }, [page]);
 
   const handleIntersection = ([entries]) => {
@@ -53,9 +51,10 @@ const InfiniteScroll = () => {
         Observer.unobserve(loader.current);
       }
     };
-  }, [hasMore]);
+  }, [hasMore]); //initiate observer when hasMore state update
 
   return (
+    //wrap the loader div with ref outside the main card wrapper
     <div className="mx-auto p-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {posts.map((item) => (

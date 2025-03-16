@@ -7,3 +7,5 @@ export const API_Options = {
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MWE1NTM0NDVkNTNhMGI5Zjc5NGQ4NDhiNzZlMGUwZCIsIm5iZiI6MTcyMzIxNzU5Ny4xNTM4NTMsInN1YiI6IjY2YjMyZDQ4YjJkMWM1NWM3OTZmMGE5OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Tl0SAru2gLLzC8nRM13p0eb0RYp00Ua-J4wQAK-x7R4",
   },
 };
+
+export const fallbackImg = `https://placehold.co/300x450/cccccc/ffffff?text=No+Image`;
