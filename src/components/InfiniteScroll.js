@@ -55,7 +55,7 @@ const InfiniteScroll = () => {
 
   return (
     //wrap the loader div with ref outside the main card wrapper
-    <div className="mx-auto p-4">
+    <div className="mx-auto max-w-5xl p-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {posts.map((item) => (
           <section
@@ -69,7 +69,7 @@ const InfiniteScroll = () => {
                   : fallbackImg
               }
               alt={`${item.original_title} Poster`}
-              className="w-full h-96 sm:h-60 object-fill sm:object-contain transform transition-transform duration-300 hover:scale-105 hover:cursor-pointer"
+              className="w-full h-96 sm:h-60 object-fill transform transition-transform duration-300 hover:scale-105 hover:cursor-pointer"
               loading="lazy"
             />
             <div className="p-4">
