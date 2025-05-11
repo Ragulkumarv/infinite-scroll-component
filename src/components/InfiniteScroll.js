@@ -22,7 +22,17 @@ const InfiniteScroll = () => {
       );
 
       const data = await resp.json();
-      setPosts((prev) => [...prev, ...data.results]); //on each call append new data
+      setPosts((prev) => {
+        const seen = new Set();
+        const combined = [...prev, ...data.results];
+        return combined.filter((item) => {
+          if (seen.has(item.id)) {
+            return false;
+          }
+          seen.add(item.id);
+          return true;
+        });
+      }); //on each call append new data
       setHasMore(data.results.length === 20); //showMore true or false
     } catch (error) {
       setPosts([]);
